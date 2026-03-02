@@ -2,12 +2,15 @@ import { useEffect,useState } from "react";
 import API from "../api/axios";
 import Sidebar from "../components/Sidebar";
 import ChatWindow from "../components/ChatWindow";
+import SideNav from "@/components/SideNav";
 
 export default function Chat(){
 
  const [conversations,setConversations]=useState([]);
  const [current,setCurrent]=useState(null);
  const [messages,setMessages]=useState([]);
+
+const [sidebarOpen, setSidebarOpen] = useState(false);
 
  useEffect(()=>{ loadConversations(); },[]);
 
@@ -64,17 +67,28 @@ const deleteChat = async(id)=>{
  return(
   <div className="app">
 
-    <Sidebar
-      conversations={conversations}
+    <SideNav className="MMM"
+open={sidebarOpen}
+  setOpen={setSidebarOpen} 
+          conversations={conversations}
       onNew={newChat}
       onSelect={openConversation}
       onDelete={deleteChat}
     />
 
+
+    {/* <Sidebar
+      conversations={conversations}
+      onNew={newChat}
+      onSelect={openConversation}
+      onDelete={deleteChat}
+    /> */}
+
     <ChatWindow
       current={current}
       messages={messages}
       setMessages={setMessages}
+      sidebarOpen={sidebarOpen}
     />
 
   </div>

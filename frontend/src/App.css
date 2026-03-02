@@ -1,8 +1,9 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  /* padding: 2rem; */
   text-align: center;
+
 }
 
 
@@ -11,6 +12,7 @@ body{
  font-family:Arial;
  background:#0f172a;
  color:white;
+   font-family: "Inter", sans-serif;
 }
 
 .app{
@@ -19,10 +21,10 @@ body{
 }
 
 .sidebar{
- width:260px;
+ /* width:260px;
  background:#111827;
  padding:15px;
- overflow:auto;
+ overflow:auto; */
 }
 
 .new-btn{
@@ -108,4 +110,53 @@ body{
  padding:10px 20px;
  border-radius:8px;
  color:white;
+}
+
+.sidebar .logout-profile {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    width: 100%;
+    background: #0a1a3b;
+    padding: 14px;
+    left: 0;
+    gap: 10px;
+}
+
+button.logout-btn
+ {
+display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 9px;
+    border-radius: 12px;
+}
+
+button.logout-btn:hover {
+    background: #10a37f;
+}
+
+.sidebar {
+    margin-top: 40px;
+}
+
+
+@media only screen and (max-width : 992px){
+  .chat-header {
+    margin-top: 42px;
+    padding-bottom: 25px;
+}
+}
+
+@media (max-width: 768px) {
+  .wert {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+  }
 }
