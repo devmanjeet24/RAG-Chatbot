@@ -12,7 +12,8 @@ import React from 'react'
 import { useNavigate } from "react-router-dom";
 import { LuPanelLeftOpen } from "react-icons/lu";
 import { MdLogout } from "react-icons/md";
-// import { Button } from "./ui/button"
+
+
 
 const SideNav = ({
     open, setOpen,conversations, onNew, onSelect, onDelete
@@ -20,10 +21,16 @@ const SideNav = ({
 
     const nav = useNavigate();
 
-    const logout = () => {
-        localStorage.removeItem("token");
-        nav("/");
-    };
+    const user = JSON.parse(localStorage.getItem("user"));  
+
+
+
+const logout = () => {
+  localStorage.removeItem("token");
+
+
+  nav("/");
+};
 
     return (
         <>
@@ -60,7 +67,9 @@ const SideNav = ({
 
                                 <div className="logout-profile">
 
-                                   <span>👋 Hi Mnajeet Singh</span>
+                                  {/* <span>👋 Hi {user?.name }</span> */}
+
+
 
                                     <button className="logout-btn" onClick={logout}>
                                        <span><MdLogout /></span> Logout

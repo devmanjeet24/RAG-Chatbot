@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
 import API from "../api/axios";
 import { useNavigate } from "react-router-dom";
-import { useUser } from "../Context/UserContext";
 import { FaRegUserCircle } from "react-icons/fa";
 
 export default function Login() {
@@ -10,10 +9,10 @@ export default function Login() {
     register,
     handleSubmit,
     formState:{errors}
-  } = useForm();
+  } = useForm();  
 
   const nav = useNavigate();
-  const { setUser } = useUser();
+
 
   const onSubmit = async(data)=>{
     try{
@@ -21,14 +20,14 @@ export default function Login() {
 
       // 🔥 TOKEN SAVE
       localStorage.setItem("token",res.data.data.token);
+    localStorage.setItem("user", JSON.stringify(res.data.data.user));
 
-      // 🔥 USER CONTEXT SAVE (IMPORTANT)
-      setUser(res.data.data.user);
-
+     
       nav("/chat");
 
     }catch(err){
       alert("Login failed");
+      console.log('Error', err);
     }
   };
 
