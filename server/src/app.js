@@ -7,7 +7,7 @@ const rateLimiter = require("./middleware/rateLimit.middleware");
 const app = express();
 
 app.use(cors({
-  origin: "https://ragchatbo.netlify.app",
+  origin: "http://localhost:5173",
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
